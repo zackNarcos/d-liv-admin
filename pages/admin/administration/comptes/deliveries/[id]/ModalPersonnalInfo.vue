@@ -1,9 +1,10 @@
 <template>
     <div>
         <div class="flex justify-center items-center">
-            <img class="inline-block size-25 rounded-full ring-2 ring-white" 
-            src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" 
-            alt=""
+            <img
+                class="inline-block size-25 rounded ring-2 ring-white h-48 w-48 object-cover"
+                :src="user?.registrationSteps?.realTimePicture?.files[0] ? user?.registrationSteps?.realTimePicture?.files[0]?.url : '/images/logo.jpg'"
+                alt=""
             >
         </div>
         <div class="flex justify-center items-center">

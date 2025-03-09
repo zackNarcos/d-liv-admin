@@ -37,97 +37,114 @@
         <div class="w-1/5">
           <!-- list till of step -->
           <div class="flex flex-col justify-between items-center gap-3">
-                <!-- users informations -->
-                <div class="flex rounded-lg shadow-lg w-full p-3 bg-white items-center justify-start relative cursor-pointer hover:bg-blue-800/10 transition-all duration-300 ease-in-out"
-                    @click="open = true"
-                     :class="{'bg-blue-300/50': route.path.includes('personnal-info')}"
-                >
-                    <div class="bg-blue-800/10 rounded-full p-2 text-blue-800 flex">
-                        <Icon name="bi:card-text" size="20" />
-                    </div>
-                    <div class="text-lg font-semibold text-gray-500 ps-4 flex items-center justify-between w-full">
-                        <span>Informations personnelles</span>
-                        <Icon name="bi:arrow-right" size="20" />
-                    </div>
+            <!-- users informations -->
+            <div class="flex rounded-lg shadow-lg w-full p-3 bg-white items-center justify-start relative cursor-pointer hover:bg-blue-800/10 transition-all duration-300 ease-in-out"
+                @click="open = true"
+                 :class="{'bg-blue-300/50': route.path.includes('personnal-info')}"
+            >
+                <div class="bg-blue-800/10 rounded-full p-2 text-blue-800 flex">
+                    <Icon name="bi:card-text" size="20" />
                 </div>
-                <!-- users piece -->
-                <div class="flex rounded-lg shadow-lg w-full p-3 bg-white items-center justify-start relative cursor-pointer hover:bg-blue-800/10 transition-all duration-300 ease-in-out"
-                    @click="router.push('/admin/administration/comptes/deliveries/'+id+'/piece')"
-                    :class="{'bg-blue-300/50': route.path.includes('piece')}"
-                >
-                    <div class="bg-blue-800/10 rounded-full p-2 flex text-blue-800">
-                        <Icon name="bi:person-vcard" size="20" />
-                    </div>
-                    <div class="text-lg font-semibold text-gray-500 ps-4 flex items-center justify-between w-full">
-                        <span>Piece d'identité</span>
-                        <Icon name="bi:arrow-right" size="20" />
-                    </div>
-                    <div class="absolute -top-2 -right-2 rounded-xl px-2 text-xs"
-                        :class="getStatusBadge(user?.registrationSteps?.cni?.status).color + ' ' + getStatusBadge(user?.registrationSteps?.cni?.status).textColor"
-                    >
-                      {{ getStatusBadge(user?.registrationSteps?.cni?.status).text }}
-                    </div>
+                <div class="text-lg font-semibold text-gray-500 ps-4 flex items-center justify-between w-full">
+                    <span>Informations personnelles</span>
+                    <Icon name="bi:arrow-right" size="20" />
                 </div>
-
-                <!-- car info -->
-                <div class="flex rounded-lg shadow-lg w-full p-3 bg-white items-center justify-start relative cursor-pointer hover:bg-blue-800/10 transition-all duration-300 ease-in-out"
-                    @click="router.push('/admin/administration/comptes/deliveries/'+id+'/vehicule')"
-                    :class="{'bg-blue-300/50': route.path.includes('vehicule')}"
-                >
-                    <div class="bg-blue-800/10 rounded-full p-2 flex text-blue-800">
-                        <Icon name="bi:car-front" size="20" />
-                    </div>
-                    <div class="text-lg font-semibold text-gray-500 ps-4 flex items-center justify-between w-full">
-                        <span>Informations du véhicule {{ user.value }}</span>
-                        <Icon name="bi:arrow-right" size="20" />
-                    </div>
-                    <div class="absolute -top-2 -right-2 rounded-xl px-2 text-xs"
-                        :class="getStatusBadge(user?.registrationSteps?.vehicle?.status).color + ' ' + getStatusBadge(user?.registrationSteps?.vehicle?.status).textColor"
-                    >
-                      {{ getStatusBadge(user?.registrationSteps?.vehicle?.status).text }}
-                    </div>
-                </div>
-
-                <!-- licence piece -->
-                <div class="flex rounded-lg shadow-lg w-full p-3 bg-white items-center justify-start relative cursor-pointer hover:bg-blue-800/10 transition-all duration-300 ease-in-out"
-                    @click="router.push('/admin/administration/comptes/deliveries/'+id+'/licence')"
-                    :class="{'bg-blue-300/50': route.path.includes('licence')}"
-                >
-                  <div class="bg-blue-800/10 rounded-full p-2 flex text-blue-800">
-                      <Icon name="bi:file-earmark-richtext" size="20" />
-                  </div>
-                  <div class="text-lg font-semibold text-gray-500 ps-4 flex items-center justify-between w-full">
-                      <span>Permis de conduire</span>
-                      <Icon name="bi:arrow-right" size="20" />
-                  </div>
-                  <div class="absolute -top-2 -right-2 rounded-xl px-2 text-xs"
-                       :class="getStatusBadge(user?.registrationSteps?.licence?.status).color + ' ' + getStatusBadge(user?.registrationSteps?.licence?.status).textColor"
-                  >
-                    {{ getStatusBadge(user?.registrationSteps?.licence?.status).text }}
-                  </div>
-                </div>
-
-                <!-- grey card -->
-                <div class="flex rounded-lg shadow-lg w-full p-3 bg-white items-center justify-start relative cursor-pointer hover:bg-blue-800/10 transition-all duration-300 ease-in-out"
-                    @click="router.push('/admin/administration/comptes/deliveries/'+id+'/carte-grise')"
-                    :class="{'bg-blue-300/50': route.path.includes('carte-grise')}"
-                >
-                  <div class="bg-blue-800/10 rounded-full p-2 flex text-blue-800">
-                      <Icon name="bi:credit-card-2-front" size="20" />
-                  </div>
-                  <div class="text-lg font-semibold text-gray-500 ps-4 flex items-center justify-between w-full">
-                      <span>Carte grise</span>
-                      <Icon name="bi:arrow-right" size="20" />
-                  </div>
-                  <div class="absolute -top-2 -right-2 rounded-xl px-2 text-xs"
-                       :class="getStatusBadge(user?.registrationSteps?.cardGrey?.status).color + ' ' + getStatusBadge(user?.registrationSteps?.cardGrey?.status).textColor"
-                  >
-                    {{ getStatusBadge(user?.registrationSteps?.cardGrey?.status).text }}
-                  </div>
-                </div>
-
-
             </div>
+            <!-- users piece -->
+            <div class="flex rounded-lg shadow-lg w-full p-3 bg-white items-center justify-start relative cursor-pointer hover:bg-blue-800/10 transition-all duration-300 ease-in-out"
+                @click="router.push('/admin/administration/comptes/deliveries/'+id+'/piece')"
+                :class="{'bg-blue-300/50': route.path.includes('piece')}"
+            >
+                <div class="bg-blue-800/10 rounded-full p-2 flex text-blue-800">
+                    <Icon name="bi:person-vcard" size="20" />
+                </div>
+                <div class="text-lg font-semibold text-gray-500 ps-4 flex items-center justify-between w-full">
+                    <span>Piece d'identité</span>
+                    <Icon name="bi:arrow-right" size="20" />
+                </div>
+                <div class="absolute -top-2 -right-2 rounded-xl px-2 text-xs"
+                    :class="getStatusBadge(user?.registrationSteps?.cni?.status).color + ' ' + getStatusBadge(user?.registrationSteps?.cni?.status).textColor"
+                >
+                  {{ getStatusBadge(user?.registrationSteps?.cni?.status).text }}
+                </div>
+            </div>
+
+            <!-- car info -->
+            <div class="flex rounded-lg shadow-lg w-full p-3 bg-white items-center justify-start relative cursor-pointer hover:bg-blue-800/10 transition-all duration-300 ease-in-out"
+                @click="router.push('/admin/administration/comptes/deliveries/'+id+'/vehicule')"
+                :class="{'bg-blue-300/50': route.path.includes('vehicule')}"
+            >
+                <div class="bg-blue-800/10 rounded-full p-2 flex text-blue-800">
+                    <Icon name="bi:car-front" size="20" />
+                </div>
+                <div class="text-lg font-semibold text-gray-500 ps-4 flex items-center justify-between w-full">
+                    <span>Informations du véhicule {{ user.value }}</span>
+                    <Icon name="bi:arrow-right" size="20" />
+                </div>
+                <div class="absolute -top-2 -right-2 rounded-xl px-2 text-xs"
+                    :class="getStatusBadge(user?.registrationSteps?.vehicle?.status).color + ' ' + getStatusBadge(user?.registrationSteps?.vehicle?.status).textColor"
+                >
+                  {{ getStatusBadge(user?.registrationSteps?.vehicle?.status).text }}
+                </div>
+            </div>
+
+            <!-- licence piece -->
+            <div class="flex rounded-lg shadow-lg w-full p-3 bg-white items-center justify-start relative cursor-pointer hover:bg-blue-800/10 transition-all duration-300 ease-in-out"
+                @click="router.push('/admin/administration/comptes/deliveries/'+id+'/licence')"
+                :class="{'bg-blue-300/50': route.path.includes('licence')}"
+            >
+              <div class="bg-blue-800/10 rounded-full p-2 flex text-blue-800">
+                  <Icon name="bi:file-earmark-richtext" size="20" />
+              </div>
+              <div class="text-lg font-semibold text-gray-500 ps-4 flex items-center justify-between w-full">
+                  <span>Permis de conduire</span>
+                  <Icon name="bi:arrow-right" size="20" />
+              </div>
+              <div class="absolute -top-2 -right-2 rounded-xl px-2 text-xs"
+                   :class="getStatusBadge(user?.registrationSteps?.licence?.status).color + ' ' + getStatusBadge(user?.registrationSteps?.licence?.status).textColor"
+              >
+                {{ getStatusBadge(user?.registrationSteps?.licence?.status).text }}
+              </div>
+            </div>
+
+            <!-- grey card -->
+            <div class="flex rounded-lg shadow-lg w-full p-3 bg-white items-center justify-start relative cursor-pointer hover:bg-blue-800/10 transition-all duration-300 ease-in-out"
+                @click="router.push('/admin/administration/comptes/deliveries/'+id+'/carte-grise')"
+                :class="{'bg-blue-300/50': route.path.includes('carte-grise')}"
+            >
+              <div class="bg-blue-800/10 rounded-full p-2 flex text-blue-800">
+                  <Icon name="bi:credit-card-2-front" size="20" />
+              </div>
+              <div class="text-lg font-semibold text-gray-500 ps-4 flex items-center justify-between w-full">
+                  <span>Carte grise</span>
+                  <Icon name="bi:arrow-right" size="20" />
+              </div>
+              <div class="absolute -top-2 -right-2 rounded-xl px-2 text-xs"
+                   :class="getStatusBadge(user?.registrationSteps?.cardGrey?.status).color + ' ' + getStatusBadge(user?.registrationSteps?.cardGrey?.status).textColor"
+              >
+                {{ getStatusBadge(user?.registrationSteps?.cardGrey?.status).text }}
+              </div>
+            </div>
+
+            <!-- iban -->
+            <div class="flex rounded-lg shadow-lg w-full p-3 bg-white items-center justify-start relative cursor-pointer hover:bg-blue-800/10 transition-all duration-300 ease-in-out"
+                @click="router.push('/admin/administration/comptes/deliveries/'+id+'/iban')"
+                :class="{'bg-blue-300/50': route.path.includes('iban')}"
+            >
+              <div class="bg-blue-800/10 rounded-full p-2 flex text-blue-800">
+                  <Icon name="bi:credit-card-2-back" size="20" />
+              </div>
+              <div class="text-lg font-semibold text-gray-500 ps-4 flex items-center justify-between w-full">
+                  <span>IBAN</span>
+                  <Icon name="bi:arrow-right" size="20" />
+              </div>
+              <div class="absolute -top-2 -right-2 rounded-xl px-2 text-xs"
+                   :class="getStatusBadge(user?.registrationSteps?.iban?.status).color + ' ' + getStatusBadge(user?.registrationSteps?.iban?.status).textColor"
+              >
+                {{ getStatusBadge(user?.registrationSteps?.iban?.status).text }}
+              </div>
+            </div>
+          </div>
         </div>
         <div class="w-4/5 bg-white p-5 rounded-lg shadow-lg h-full overflow-y-auto">
           <div class="text-gray-500">
