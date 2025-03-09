@@ -89,7 +89,7 @@ const image2 = ref(null);
 
 watchEffect(() => {
   user.value = $usersStore?.single.data;
-  comment.value = $usersStore?.single.data?.registrationSteps?.vehicle?.notes;
+  comment.value = $usersStore?.single.data?.registrationSteps?.iban?.notes;
 });
 
 const openFullscreen = () => {
@@ -134,7 +134,7 @@ const onUpdateStatus = (status) => {
   const data = {
     status,
     comment: comment.value,
-    type: StepEnum.VEHICLE,
+    type: StepEnum.IBAN,
   };
 
   $usersStore.updateStatus(data);
