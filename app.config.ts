@@ -4,7 +4,7 @@ export default defineAppConfig({
   //   auth: "https://auth.dliv.zack-abessolo.com",
   // },
   api: {
-    base: "http://10.0.2.2:3000",
+    base: "http://localhost:3003",
     auth: "http://localhost:3001",
   },
 });

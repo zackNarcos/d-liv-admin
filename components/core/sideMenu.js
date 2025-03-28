@@ -19,27 +19,27 @@ export const sideMenuItems = reactive([
         icon: "teenyicons:adjust-vertical-outline",
         items: [
             {
-                title: "Critères d'élégibilité",
-                to: "/admin/referentiel/criteres-de-qualification",
+                title: "Gestion des assurances",
+                to: "/admin/referentiel/assurance",
             },
             {
-                title: "Pays",
-                to: "/admin/referentiel/pays",
+                title: "Gestion des catégories",
+                to: "/admin/referentiel/categories"
             },
-            {
-                title: "Modèles de fichier",
-                to: "/admin/referentiel/modeles-de-fichier",
-            },
+            // {
+            //     title: "Pays",
+            //     to: "/admin/referentiel/pays",
+            // },
         ],
     },
-    {
-        title: "Gestion du contenu",
-        icon: "bi:newspaper",
-        items: [
-            { title: "Formulaires et modèles", to: "/admin/annexes/formulaires-et-modeles" },
-            { title: "Gestion des actualités", to: "/admin/annexes/posts" },
-            { title: "Gestion de la faq", to: "/admin/annexes/faq" },
-            { title: "Gestion de la newsletter", to: "/admin/annexes/newsletter" },
-        ],
-    },
+    // {
+    //     title: "Gestion du contenu",
+    //     icon: "bi:newspaper",
+    //     items: [
+    //         // { title: "Formulaires et modèles", to: "/admin/annexes/formulaires-et-modeles" },
+    //         // { title: "Gestion des actualités", to: "/admin/annexes/posts" },
+    //         // { title: "Gestion de la faq", to: "/admin/annexes/faq" },
+    //         // { title: "Gestion de la newsletter", to: "/admin/annexes/newsletter" },
+    //     ],
+    // },
 ]);
