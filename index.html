@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="*">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+</head>
+<style>
+    .left {
+        background: red;
+        height: 100%;
+        width: 30%;
+        padding: 50px;
+        overflow: auto;
+        position: absolute;
+        right: 45%;
+        top: 30%;
+    }
+    .rt {
+        background: blue;
+        height: 100%;
+        width: 70%;
+    }
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 60vh;
+        position: relative;
+    }
+
+    .long {
+        background: green;
+        height: 30vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="long">
+                long
+            </div>
+            <div class="long">
+                long
+            </div>
+            <div class="long">
+                long
+            </div>
+            <div class="long">
+                long
+            </div>
+        </div>
+        <div class="rt">Right</div>
+    </div>
+</body>
+</html>

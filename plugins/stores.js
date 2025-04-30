@@ -9,6 +9,7 @@ export default defineNuxtPlugin((NuxtApp) => {
             usersStore: useUsersStore(),
             assurancesStore: useAssurancesStore(),
             categoriesStore: useCategoriesStore(),
+            deliveriesStore: useDeliveriesStore(),
         },
     };
 });

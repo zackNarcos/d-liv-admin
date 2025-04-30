@@ -15,31 +15,25 @@ export const sideMenuItems = reactive([
         ],
     },
     {
+        title: "Livraisons",
+        icon: "iconoir:package",
+        items: [
+            { title: "Gestion des livraisons", to: "/admin/livraisons/courses" },
+            { title: "Gestion des itinéraires", to: "/admin/livraisons/itineraires" },
+        ],
+    },
+    {
         title: "Référentiel",
         icon: "teenyicons:adjust-vertical-outline",
         items: [
             {
                 title: "Gestion des assurances",
-                to: "/admin/referentiel/assurance",
+                to: "/admin/referentiel/courses",
             },
             {
                 title: "Gestion des catégories",
                 to: "/admin/referentiel/categories"
             },
-            // {
-            //     title: "Pays",
-            //     to: "/admin/referentiel/pays",
-            // },
         ],
     },
-    // {
-    //     title: "Gestion du contenu",
-    //     icon: "bi:newspaper",
-    //     items: [
-    //         // { title: "Formulaires et modèles", to: "/admin/annexes/formulaires-et-modeles" },
-    //         // { title: "Gestion des actualités", to: "/admin/annexes/posts" },
-    //         // { title: "Gestion de la faq", to: "/admin/annexes/faq" },
-    //         // { title: "Gestion de la newsletter", to: "/admin/annexes/newsletter" },
-    //     ],
-    // },
 ]);

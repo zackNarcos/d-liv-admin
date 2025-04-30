@@ -11,9 +11,12 @@ export const truncateText = (inputText, maxLength) => {
   return truncated;
 };
 
-export const formatDate = (inputDate) => {
+export const formatDate = (inputDate, form) => {
   if (!inputDate || inputDate == null) return null;
   const date = new Date(inputDate);
+  if (form && form !== "") {
+    return format(date, form, { locale: fr });
+  }
   return format(date, "dd/MM/yyyy");
 };
 export const formatedDate = (dateString) => {
