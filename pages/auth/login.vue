@@ -91,8 +91,8 @@ definePageMeta({
   title: "D-liv | Connexion",
 });
 
-let email = ref("zackariepro@gmail.com");
-let password = ref("Stro@ngPass123");
+let email = ref("admin@gmail.com");
+let password = ref("Zack@123");
 let errors = ref(null);
 
 const isButtonDisabled = computed(() => {
