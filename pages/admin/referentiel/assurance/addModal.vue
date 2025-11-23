@@ -78,11 +78,20 @@
                     </div>
                     <div class="col-span-2">
                       <label>
-                        prix
+                        Prix
                       </label>
                       <VaInput v-model="data.price"
                                type="number"
                                placeholder="Renseignez le prix"
+                      />
+                    </div>
+                    <div class="col-span-2">
+                      <label>
+                        Franchise (%)
+                      </label>
+                      <VaInput v-model="data.frc"
+                               type="number"
+                               placeholder="10"
                       />
                     </div>
                     <div class="col-span-2">
@@ -101,8 +110,8 @@
                 >
                   <button
                       type="submit"
-                      :disabled="(!data.name && !data.price && !data.description)"
-                      :class="(!data.name && !data.price && !data.description)
+                      :disabled="(!data.name && !data.price && !data.frc && !data.description)"
+                      :class="(!data.name && !data.price && !data.frc && !data.description)
                        ? 'bg-primary/50 hover:bg-primary/50'
                        : 'bg-primary hover:bg-primary-light'
                       "
@@ -133,13 +142,15 @@
 import {Dialog, DialogPanel, TransitionChild, TransitionRoot,} from "@headlessui/vue";
 import Spinner from "~/components/core/Spinner.vue";
 import swal from "~/plugins/sweetalert.js";
+import {integer} from "@vee-validate/rules";
 
 const props = defineProps({
   modelValue: Boolean,
   data: {
     _id: String,
     name: String,
-    price: String,
+    price: integer,
+    frc: integer,
     description: String,
   }
 });
@@ -161,7 +172,8 @@ const closeModal = () => {
 const data = ref({
   _id: "",
   name: "",
-  price: "",
+  price: 0,
+  frc: 10,
   description: ""
 });
 
@@ -173,6 +185,7 @@ const onSubmit = async () => {
         _id: data.value._id,
         name: data.value.name,
         price: parseInt(data.value.price),
+        frc: parseInt(data.value.frc.toString().replace("%", "")),
         description: data.value.description,
         isActive: true,
       };
@@ -195,6 +208,7 @@ const onSubmit = async () => {
       let dataAdd = {
         name: data.value.name,
         price: parseInt(data.value.price),
+        frc: parseInt(data.value.frc.toString().replace("%", "")),
         description: data.value.description,
         isActive: true,
       };
@@ -229,6 +243,7 @@ const onSubmit = async () => {
 onUpdated(()=> {
   data.value.name = props.data.name;
   data.value.price = props.data.price;
+  data.value.frc = props.data.frc;
   data.value.description = props.data.description;
   data.value._id = props.data._id;
 })

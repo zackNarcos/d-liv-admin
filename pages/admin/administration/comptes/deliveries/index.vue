@@ -285,8 +285,9 @@
   const perPage = ref(10);
   const sortField = ref("label");
   const sortDirection = ref("desc");
-  const selectedAction = ref("Séléctionner");
-  const selectedStatus = ref(StatusEnum.VERIFIED);
+  // const selectedAction = ref("Séléctionner");
+  const selectedAction = ref("Attente de validation");
+  const selectedStatus = ref(StatusEnum.UNDER_REVIEW);
   const selectedNoticeModel = ref(false);
 
   const user = ref(null);

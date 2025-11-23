@@ -28,7 +28,7 @@ export const sideMenuItems = reactive([
         items: [
             {
                 title: "Gestion des assurances",
-                to: "/admin/referentiel/courses",
+                to: "/admin/referentiel/assurance",
             },
             {
                 title: "Gestion des catégories",

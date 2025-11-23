@@ -132,8 +132,14 @@
               <th v-if="isEditabled" scope="col" class="px-6 py-3 text-primary font-light">Poids</th>
               <th scope="col" class="px-6 py-3 text-primary font-light">
                 <div class="flex items-center">
-                  Code
-                  <Icon name="uil:sort" class="cursor-pointer" size="16" @click="sortDatas('code')" />
+                  Prix
+                  <Icon name="uil:sort" class="cursor-pointer" size="16" @click="sortDatas('price')" />
+                </div>
+              </th>
+              <th scope="col" class="px-6 py-3 text-primary font-light">
+                <div class="flex items-center">
+                  Franchise
+                  <Icon name="uil:sort" class="cursor-pointer" size="16" @click="sortDatas('frc')" />
                 </div>
               </th>
               <th scope="col" class="px-6 py-3 text-primary font-light">
@@ -200,7 +206,10 @@
                 {{ data.name }}
               </th>
               <th scope="row" class="px-6 text-md font-medium text-gray-600 whitespace-nowrap">
-                {{ data.code }}
+                {{ data.price }}
+              </th>
+              <th scope="row" class="px-6 text-md font-medium text-gray-600 whitespace-nowrap">
+                {{ data.frc }}
               </th>
               <th scope="row" class="px-6 text-md font-medium text-gray-600 ">
                 {{ data.description }}
@@ -310,7 +319,8 @@
   const DEFAULT_MODEL = {
     _id: "",
     name: "",
-    code: "",
+    price: 0,
+    frc: 0,
     weight: 0,
     description: "",
   };
