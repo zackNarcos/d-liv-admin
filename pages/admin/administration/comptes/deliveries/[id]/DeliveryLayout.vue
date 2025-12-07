@@ -18,19 +18,19 @@
         </div>
       </div>
 
-      <div class="w-full flex justify-between px-8">
-        <!--          prev-->
-        <button class="bg-blue-800 text-white px-6 py-2 rounded-lg" @click="router.push('/admin/administration/comptes/deliveries')">
-          <Icon name="bi:arrow-left" size="20" />
-          Profil précedent
-        </button>
-        <!--          next-->
-        <button class="bg-blue-800 text-white px-6 py-2 rounded-lg" @click="router.push('/admin/administration/comptes/deliveries/'+id+'/vehicule')">
-          Profil suivant
-          <Icon name="bi:arrow-right" size="20" />
-        </button>
+<!--      <div class="w-full flex justify-between px-8">-->
+<!--        &lt;!&ndash;          prev&ndash;&gt;-->
+<!--        <button class="bg-blue-800 text-white px-6 py-2 rounded-lg" @click="router.push('/admin/administration/comptes/deliveries')">-->
+<!--          <Icon name="bi:arrow-left" size="20" />-->
+<!--          Profil précedent-->
+<!--        </button>-->
+<!--        &lt;!&ndash;          next&ndash;&gt;-->
+<!--        <button class="bg-blue-800 text-white px-6 py-2 rounded-lg" @click="router.push('/admin/administration/comptes/deliveries/'+id+'/vehicule')">-->
+<!--          Profil suivant-->
+<!--          <Icon name="bi:arrow-right" size="20" />-->
+<!--        </button>-->
 
-      </div>
+<!--      </div>-->
       <!--  show data     -->
       <div class="my-5 flex gap-3 w-5/6 mx-auto" v-if="!$usersStore?.single.loading">
 
@@ -47,7 +47,7 @@
                 </div>
                 <div class="text-lg font-semibold text-gray-500 ps-4 flex items-center justify-between w-full">
                     <span>Informations personnelles</span>
-                    <Icon name="bi:arrow-right" size="20" />
+<!--                    <Icon name="bi:arrow-right" size="20" />-->
                 </div>
             </div>
             <!-- users piece -->
@@ -60,7 +60,7 @@
                 </div>
                 <div class="text-lg font-semibold text-gray-500 ps-4 flex items-center justify-between w-full">
                     <span>Piece d'identité</span>
-                    <Icon name="bi:arrow-right" size="20" />
+<!--                    <Icon name="bi:arrow-right" size="20" />-->
                 </div>
                 <div class="absolute -top-2 -right-2 rounded-xl px-2 text-xs"
                     :class="getStatusBadge(user?.registrationSteps?.cni?.status).color + ' ' + getStatusBadge(user?.registrationSteps?.cni?.status).textColor"
@@ -79,7 +79,7 @@
                 </div>
                 <div class="text-lg font-semibold text-gray-500 ps-4 flex items-center justify-between w-full">
                     <span>Informations du véhicule {{ user.value }}</span>
-                    <Icon name="bi:arrow-right" size="20" />
+<!--                    <Icon name="bi:arrow-right" size="20" />-->
                 </div>
                 <div class="absolute -top-2 -right-2 rounded-xl px-2 text-xs"
                     :class="getStatusBadge(user?.registrationSteps?.vehicle?.status).color + ' ' + getStatusBadge(user?.registrationSteps?.vehicle?.status).textColor"
@@ -98,7 +98,7 @@
               </div>
               <div class="text-lg font-semibold text-gray-500 ps-4 flex items-center justify-between w-full">
                   <span>Permis de conduire</span>
-                  <Icon name="bi:arrow-right" size="20" />
+<!--                  <Icon name="bi:arrow-right" size="20" />-->
               </div>
               <div class="absolute -top-2 -right-2 rounded-xl px-2 text-xs"
                    :class="getStatusBadge(user?.registrationSteps?.licence?.status).color + ' ' + getStatusBadge(user?.registrationSteps?.licence?.status).textColor"
@@ -117,7 +117,7 @@
               </div>
               <div class="text-lg font-semibold text-gray-500 ps-4 flex items-center justify-between w-full">
                   <span>Carte grise</span>
-                  <Icon name="bi:arrow-right" size="20" />
+<!--                  <Icon name="bi:arrow-right" size="20" />-->
               </div>
               <div class="absolute -top-2 -right-2 rounded-xl px-2 text-xs"
                    :class="getStatusBadge(user?.registrationSteps?.cardGrey?.status).color + ' ' + getStatusBadge(user?.registrationSteps?.cardGrey?.status).textColor"
@@ -136,7 +136,7 @@
               </div>
               <div class="text-lg font-semibold text-gray-500 ps-4 flex items-center justify-between w-full">
                   <span>IBAN</span>
-                  <Icon name="bi:arrow-right" size="20" />
+<!--                  <Icon name="bi:arrow-right" size="20" />-->
               </div>
               <div class="absolute -top-2 -right-2 rounded-xl px-2 text-xs"
                    :class="getStatusBadge(user?.registrationSteps?.iban?.status).color + ' ' + getStatusBadge(user?.registrationSteps?.iban?.status).textColor"

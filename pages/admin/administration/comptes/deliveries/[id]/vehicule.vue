@@ -86,7 +86,7 @@
           placeholder="Ajouter un commentaire"
 
       />
-      <div class="pb-2 mt-6 flex gap-4 justify-between">
+      <div class="pb-2 mt-6 flex gap-4 justify-between" v-if="user?.status === StatusEnum.UNDER_REVIEW">
         <button
             class="bg-red-500 text-white px-6 py-2 rounded-lg"
             @click="onReject"

@@ -32,8 +32,11 @@ const createAxiosClient2 = (baseURL) => {
       return response;
     },
     async (error) => {
-      if (error.response && error.response.status === 401) {
+      if (error.response && (error.response.status === 401)) {
         const authedUser = useAuthedUser();
+
+        //redirect to login page
+        // await authedUser.logout();
 
         await authedUser.refreshToken();
       }

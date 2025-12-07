@@ -17,8 +17,14 @@ export const useAuthedUser = defineStore("authedUser", {
 
       if (token) {
         this.$state.authData.token = token;
-        this.$state.isAuthenticated = true;
-        await this.fetchUserData();
+        const data = await this.fetchUserData();
+        console.log("init user data => ", data);
+        if (!data) {
+          this.clearUserData();
+        } else {
+          this.$state.userData = data;
+          this.$state.isAuthenticated = true;
+        }
       }
     },
 
@@ -57,9 +63,15 @@ export const useAuthedUser = defineStore("authedUser", {
     },
 
     async fetchUserData() {
-      const { data } = await axiosClient2.get("/auth/me");
+      try {
+        const { data } = await axiosClient2.get("/auth/me");
 
-      this.$state.userData = data;
+        this.$state.userData = data;
+        return data;
+      } catch (error) {
+        console.error("Failed to fetch user data:", error);
+        return null;
+      }
     },
 
     async refreshToken() {
@@ -68,7 +80,7 @@ export const useAuthedUser = defineStore("authedUser", {
 
     async logout() {
       const router = useRouter();
-      localStorage.removeItem("Authentication");
+      localStorage.removeItem("token");
       this.clearUserData();
       await router.push("/auth/login");
     },

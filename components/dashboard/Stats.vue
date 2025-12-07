@@ -16,7 +16,7 @@
   const props = defineProps({
     bgIcon: String,
     title: String,
-    TextBox: Number,
+    TextBox: String,
     IconColor: String,
   });
   const { bgIcon, title, TextBox, IconColor } = toRefs(props);
